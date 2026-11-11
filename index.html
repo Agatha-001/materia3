@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site educativo e acessível sobre radiação do corpo negro, Sol, energia solar e sensores.">
+  <meta name="theme-color" content="#10172b">
+  <title>Sol em Foco | Radiação do Corpo Negro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Sol em Foco, início"><span class="brand-icon" aria-hidden="true">☀</span> Sol em Foco</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
+    <nav id="menu" aria-label="Navegação principal">
+      <a href="#conceito">Corpo negro</a>
+      <a href="#temperatura">Temperatura</a>
+      <a href="#sol">O Sol</a>
+      <a href="#piscina">Piscina</a>
+      <a href="#robotica">Robótica</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+    <div class="access-tools" aria-label="Ferramentas de acessibilidade">
+      <button id="fontToggle" type="button" aria-pressed="false" title="Alternar fonte amigável para dislexia">Aa</button>
+      <button id="contrastToggle" type="button" aria-pressed="false" title="Alternar alto contraste">◐</button>
+      <button id="textMinus" type="button" aria-label="Diminuir fonte">A−</button>
+      <button id="textPlus" type="button" aria-label="Aumentar fonte">A+</button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">FÍSICA MODERNA • PROJETO INTEGRADOR CEP</span>
+        <h1>Por que os objetos <span>emitem radiação?</span></h1>
+        <p>Descubra como a temperatura transforma a luz emitida pelos objetos e como essa ciência ajuda a aproveitar a energia do Sol para aquecer a água.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#conceito">Começar a explorar <span aria-hidden="true">→</span></a>
+          <a class="btn secondary" href="#simulador">Testar simulador</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>∞</strong><span>Energia em movimento</span></div>
+          <div><strong>☀</strong><span>Sol como fonte natural</span></div>
+          <div><strong>♨</strong><span>Calor e tecnologia</span></div>
+        </div>
+      </div>
+      <div class="sun-art" role="img" aria-label="Ilustração do Sol emitindo ondas de luz e calor">
+        <div class="sun-glow"></div><div class="sun-core"></div>
+        <i class="ray ray-1"></i><i class="ray ray-2"></i><i class="ray ray-3"></i><i class="ray ray-4"></i>
+        <span class="wave wave-a"></span><span class="wave wave-b"></span><span class="wave wave-c"></span>
+        <span class="art-label">LUZ + CALOR</span>
+      </div>
+    </section>
+
+    <section class="section" id="conceito">
+      <div class="section-heading"><span class="eyebrow">01 • CONCEITO</span><h2>O que é um <span>corpo negro ideal?</span></h2><p>É um modelo físico usado para entender como a matéria emite radiação.</p></div>
+      <div class="two-col">
+        <article class="glass-card">
+          <div class="icon-bubble">◉</div>
+          <h3>Um absorvedor perfeito</h3>
+          <p>Um corpo negro ideal absorve toda a radiação eletromagnética que recebe, sem refletir nem transmitir energia. Quando está a uma temperatura acima do zero absoluto, também emite radiação térmica.</p>
+          <p><strong>Importante:</strong> “negro” descreve sua capacidade ideal de absorção, não significa que todo objeto quente precise parecer preto.</p>
+        </article>
+        <article class="visual-card blackbody-card">
+          <div class="blackbody-visual"><div class="black-hole"></div><span>RADIAÇÃO<br>INCIDENTE</span><b>→</b><span>ABSORÇÃO</span></div>
+          <p class="visual-caption">Modelo simplificado: a radiação que entra é absorvida pelo corpo ideal.</p>
+        </article>
+      </div>
+      <div class="info-strip"><span class="strip-icon">💡</span><p><strong>Na prática:</strong> nenhum objeto real é um corpo negro perfeito. Alguns materiais, como cavidades com uma pequena abertura, podem se aproximar bastante desse comportamento.</p></div>
+    </section>
+
+    <section class="section section-alt" id="temperatura">
+      <div class="section-heading"><span class="eyebrow">02 • ESPECTRO E TEMPERATURA</span><h2>Quanto maior a temperatura, <span>mais muda a radiação</span></h2><p>A temperatura altera a quantidade de energia emitida e a faixa de comprimentos de onda mais intensa.</p></div>
+      <div class="simulator-layout" id="simulador">
+        <div class="simulator-panel">
+          <div class="panel-top"><span class="live-dot"></span> SIMULADOR DE CORPO NEGRO <span class="tag">INTERATIVO</span></div>
+          <label for="tempSlider">Temperatura do objeto <output id="tempOutput" for="tempSlider">5.800 K</output></label>
+          <input id="tempSlider" type="range" min="500" max="10000" step="100" value="5800">
+          <div class="range-labels"><span>500 K</span><span>10.000 K</span></div>
+          <div class="temperature-preview"><div class="glowing-object" id="glowingObject"></div><div><small>APARÊNCIA ILUSTRATIVA</small><strong id="colorName">Branco-amarelado</strong></div></div>
+          <div class="readings">
+            <div><small>Pico aproximado (Lei de Wien)</small><strong id="peakOutput">500 nm</strong></div>
+            <div><small>Faixa do pico</small><strong id="bandOutput">Visível</strong></div>
+          </div>
+          <p class="small-note">O pico é calculado pela lei de Wien. A cor mostrada é uma representação aproximada, não uma medição.</p>
+        </div>
+        <div class="chart-panel">
+          <div class="chart-title"><div><span class="eyebrow">ESPECTRO SIMULADO</span><h3>Distribuição da radiação</h3></div><span class="chart-unit">intensidade relativa</span></div>
+          <canvas id="spectrumChart" role="img" aria-label="Gráfico da intensidade relativa da radiação em função do comprimento de onda. O pico muda quando a temperatura é alterada.">Gráfico do espectro de radiação.</canvas>
+          <div class="spectrum-scale"><span>UV</span><span>Visível</span><span>Infravermelho</span></div>
+          <div class="spectrum-gradient" aria-hidden="true"></div>
+          <p class="small-note">Ao aumentar a temperatura, o pico se desloca para comprimentos de onda menores e a energia total emitida aumenta.</p>
+        </div>
+      </div>
+      <div class="three-cards">
+        <article class="mini-card"><span class="temperature-dot cool"></span><h3>Temperatura menor</h3><p>Emissão mais intensa em comprimentos de onda longos, geralmente no infravermelho.</p></article>
+        <article class="mini-card"><span class="temperature-dot warm"></span><h3>Temperatura intermediária</h3><p>O objeto pode começar a emitir luz visível, passando por tons avermelhados.</p></article>
+        <article class="mini-card"><span class="temperature-dot hot"></span><h3>Temperatura maior</h3><p>O pico se desloca para ondas menores; a emissão pode incluir mais luz visível e ultravioleta.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="sol">
+      <div class="section-heading"><span class="eyebrow">03 • NOSSA ESTRELA</span><h2>Por que o Sol emite principalmente <span>luz visível e infravermelha?</span></h2><p>A superfície visível do Sol tem temperatura efetiva próxima de 5.800 K.</p></div>
+      <div class="sun-explain">
+        <div class="sun-mini" aria-hidden="true"><div></div></div>
+        <div class="sun-copy">
+          <p>Com essa temperatura, o espectro solar tem grande parte de sua emissão na região da luz visível e também em faixas do infravermelho e do ultravioleta. O pico do espectro, quando aproximado por um corpo negro, fica perto de <strong>500 nanômetros</strong>, dentro da região visível.</p>
+          <p>A atmosfera terrestre absorve e espalha parte da radiação antes que ela chegue ao solo. Por isso, a distribuição medida na superfície não é exatamente igual à emitida pelo Sol.</p>
+        </div>
+      </div>
+      <div class="spectrum-legend">
+        <div><span class="legend-color ultraviolet"></span><strong>Ultravioleta</strong><small>Comprimentos de onda menores que o visível.</small></div>
+        <div><span class="legend-color visible"></span><strong>Luz visível</strong><small>Faixa que nossos olhos conseguem detectar.</small></div>
+        <div><span class="legend-color infrared"></span><strong>Infravermelho</strong><small>Faixa associada à transferência de energia térmica.</small></div>
+      </div>
+    </section>
+
+    <section class="section pool-section" id="piscina">
+      <div class="section-heading"><span class="eyebrow">04 • CONEXÃO COM O PROJETO DA PISCINA</span><h2>Do Sol para a água: <span>energia solar na prática</span></h2><p>A radiação solar pode ser absorvida por superfícies e transformada em energia térmica, ajudando a aquecer a água.</p></div>
+      <div class="pool-grid">
+        <div class="pool-illustration" role="img" aria-label="Ilustração de uma piscina recebendo energia do Sol por um coletor solar">
+          <div class="pool-sun">☀</div><div class="collector"><span></span><span></span><span></span><span></span></div>
+          <div class="pipe pipe-one"></div><div class="pipe pipe-two"></div><div class="pool-water"><i></i><i></i><i></i></div>
+          <span class="pool-label">PISCINA</span>
+        </div>
+        <div class="pool-text">
+          <h3>Como acontece o aquecimento?</h3>
+          <ol class="steps">
+            <li><b>1</b><span><strong>Captação</strong> — coletores recebem a radiação solar.</span></li>
+            <li><b>2</b><span><strong>Absorção</strong> — parte da energia é absorvida e convertida em calor.</span></li>
+            <li><b>3</b><span><strong>Transferência</strong> — a água circula pelo sistema e recebe energia térmica.</span></li>
+            <li><b>4</b><span><strong>Uso</strong> — a água retorna mais aquecida à piscina.</span></li>
+          </ol>
+          <p class="small-note">O resultado depende da área dos coletores, incidência solar, vazão, isolamento, clima e perdas de calor para o ambiente.</p>
+        </div>
+      </div>
+      <div class="comparison">
+        <div><span class="compare-icon">☀️</span><h3>Energia solar</h3><p>Fonte renovável durante o uso, reduz a necessidade de outras fontes de energia para aquecimento.</p></div>
+        <div class="compare-arrow" aria-hidden="true">→</div>
+        <div><span class="compare-icon">♨️</span><h3>Energia térmica</h3><p>A radiação absorvida aquece o coletor, que transfere energia para a água.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="robotica">
+      <div class="section-heading"><span class="eyebrow">05 • ROBÓTICA E AUTOMAÇÃO</span><h2>Sensores: como monitorar <span>a piscina?</span></h2><p>A programação pode transformar medições em decisões automáticas e ajudar a usar energia com eficiência.</p></div>
+      <div class="sensor-grid">
+        <article class="sensor-card"><div class="sensor-icon">🌡️</div><h3>Sensor de temperatura</h3><p>Mede a temperatura da água. Exemplo: DS18B20 à prova d'água.</p><span class="sensor-tag">DADO: °C</span></article>
+        <article class="sensor-card"><div class="sensor-icon">☀️</div><h3>Sensor de luminosidade</h3><p>Um LDR identifica variações na luz ambiente e pode indicar a incidência solar de forma aproximada.</p><span class="sensor-tag">DADO: leitura analógica</span></article>
+        <article class="sensor-card"><div class="sensor-icon">💧</div><h3>Sensor de nível</h3><p>Ajuda a verificar o nível da água e pode proteger o funcionamento do sistema.</p><span class="sensor-tag">DADO: nível</span></article>
+      </div>
+      <div class="automation-box">
+        <div><span class="eyebrow">EXEMPLO DE LÓGICA</span><h3>Uma automação consciente</h3><p>O controlador lê os sensores e informa se há condições favoráveis para aproveitar o aquecimento solar. Os limites devem ser definidos conforme o projeto real.</p></div>
+        <div class="logic-flow"><div>☀️ Luminosidade</div><b>+</b><div>🌡️ Temperatura da água</div><b>↓</b><div class="logic-result">🧠 Controlador avalia os dados</div><b>↓</b><div>📊 Exibe o estado do sistema</div></div>
+      </div>
+      <details class="code-details"><summary>Ver exemplo de programação para Arduino (modelo didático)</summary>
+        <pre><code>// Exemplo didático: leitura de luminosidade com LDR
+const int pinoLDR = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int luminosidade = analogRead(pinoLDR);
+  Serial.print("Leitura do LDR: ");
+  Serial.println(luminosidade);
+  delay(1000);
+}</code></pre>
+        <p class="small-note">Este exemplo lê apenas o LDR. Para medir a água, é necessário adicionar um sensor de temperatura compatível e sua biblioteca. Não conecte sensores ou equipamentos à piscina sem orientação técnica e isolamento elétrico adequado.</p>
+      </details>
+    </section>
+
+    <section class="section" id="quiz">
+      <div class="section-heading"><span class="eyebrow">06 • TESTE SEUS CONHECIMENTOS</span><h2>Quiz <span>Sol em Foco</span></h2><p>Responda e confira sua compreensão do conteúdo.</p></div>
+      <div class="quiz-card">
+        <div class="quiz-progress"><span id="questionCount">Questão 1 de 5</span><span id="scoreLabel">Pontuação: 0</span></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <h3 id="questionText">O que caracteriza um corpo negro ideal?</h3>
+        <div id="answers" class="answers">
+          <button class="answer" data-index="0">Reflete toda a luz que recebe.</button>
+          <button class="answer" data-index="1">Absorve toda a radiação incidente.</button>
+          <button class="answer" data-index="2">Não emite energia.</button>
+        </div>
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        <button id="nextQuestion" class="btn primary" disabled>Próxima questão →</button>
+        <div id="quizResult" class="quiz-result" hidden></div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="mapa">
+      <div><span class="eyebrow">MAPA DO SITE</span><h2>Explore, aprenda e <span>compartilhe.</span></h2><p>A física está presente em tecnologias que usamos todos os dias. Entender a radiação solar também ajuda a pensar em soluções sustentáveis.</p></div>
+      <div class="site-map">
+        <a href="#inicio">01. Início</a><a href="#conceito">02. Corpo negro</a><a href="#temperatura">03. Temperatura e espectro</a><a href="#sol">04. Radiação solar</a><a href="#piscina">05. Projeto da piscina</a><a href="#robotica">06. Sensores e robótica</a><a href="#quiz">07. Quiz</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#inicio"><span class="brand-icon">☀</span> Sol em Foco</a>
+    <p>Projeto Integrador CEP • 3º trimestre</p>
+    <p class="footer-note">Conteúdo educativo sobre física moderna, energia solar, programação e inclusão.</p>
+  </footer>
+
+  <!-- VLibras: recurso de tradução automática para Libras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active" aria-label="Abrir tradução em Libras"></div>
+    <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>if (window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+  <script src="script.js"></script>
+</body>
+</html>
